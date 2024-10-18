@@ -6,6 +6,7 @@ export default function Dashboard() {
         <>
             <Container>
                 <Menu />
+                <Wrapper></Wrapper>
             </Container>
         </>
     );
@@ -30,6 +31,9 @@ const Container = styled.div`
     position: relative;
     background-color: #111;
     overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:before {
         content: '';
@@ -47,3 +51,8 @@ const Container = styled.div`
         pointer-events: none; 
     }
 `;
+
+const Wrapper = styled.div`
+    width: 90%;
+    height: 90%;
+`
