@@ -27,7 +27,7 @@ const bgAnimation = keyframes`
 `;
 
 const Container = styled.div`
-    height: 100vh;
+    height: 100dvh;
     position: relative;
     background-color: #111;
     overflow: hidden; 
