@@ -6,8 +6,8 @@ export default function About() {
 
     return (
         <>
-            <Content className="animate__animated animate__bounceInLeft">
-                <Head><p>ABOUT</p> <p>ABOUT</p> </Head>
+            <Content>
+                <Head className="animate__animated animate__bounceInLeft"><p>ABOUT</p> <p>ABOUT</p> </Head>
                 <div className="about">
                     Hi, my name is Muhammad Radya Iftikhar, but you can call me <b>Radya</b>. I'm a first-year university student with a growing passion for coding, especially in web development and IoT. I enjoy diving into projects that allow me to build creative solutions using technology. So far, I've developed skills in <u>HTML/CSS</u>, <u>JavaScript</u>, <u>Vue</u>, <u>React</u>, and <u>Node/Express.js</u>, and I love experimenting with these tools to create practical applications.
                     <br /><br />
@@ -51,6 +51,7 @@ const Content = styled.div`
     height: 100%;
     color: white;
     overflow: auto;
+    overflow-x: hidden;
     line-height: 1.8;
     direction: rtl;
 

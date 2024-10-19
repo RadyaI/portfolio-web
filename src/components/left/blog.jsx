@@ -53,8 +53,8 @@ export default function Blog() {
 
     return (
         <>
-            <Content className="animate__animated animate__bounceInLeft">
-                <Head><p>BLOG</p> <p>BLOG</p> </Head>
+            <Content>
+                <Head className="animate__animated animate__bounceInLeft"><p>BLOG</p> <p>BLOG</p> </Head>
                 <DisplayBlog></DisplayBlog>
             </Content>
         </>
@@ -89,6 +89,7 @@ const Content = styled.div`
     width: 100%;
     height: 100%;
     overflow: auto;
+    overflow-x: hidden;
     direction: rtl;
 
 &::-webkit-scrollbar{
