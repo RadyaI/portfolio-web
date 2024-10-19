@@ -1,13 +1,14 @@
+import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Menu from "./components/menu";
 
 // Left
 import Home from "./components/left/home";
-import { useState } from "react";
+import About from "./components/left/about";
 
 export default function Dashboard() {
 
-    const [leftSelect, setLeftSelect] = useState('1');
+    const [leftSelect, setLeftSelect] = useState('2');
     const [rightSelect, setRightSelect] = useState('1');
     const handleLeftSelectChange = (newLeftSelect) => {
         setLeftSelect(newLeftSelect);
@@ -17,17 +18,31 @@ export default function Dashboard() {
         setRightSelect(newRightSelect);
     };
 
+        useEffect(() => {
+            console.log(`
+            ███████╗████████╗ ██████╗ ██████╗ 
+            ██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗
+            ███████╗   ██║   ██║   ██║██████╔╝
+            ╚════██║   ██║   ██║   ██║██╔═══╝ 
+            ███████║   ██║   ╚██████╔╝██║     
+            ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     
+            `);
+
+            console.log("%cMau ngapain? udah ga usah! balik sana hush.", "color: red; font-size: 30px; font-weight: bold;");
+
+        }, []);
+
     return (
         <>
             <Container>
-                <Menu 
-                    onLeftSelectChange={handleLeftSelectChange} 
+                <Menu
+                    onLeftSelectChange={handleLeftSelectChange}
                     onRightSelectChange={handleRightSelectChange}
                 />
                 <Wrapper>
                     <Card1>
-                        { leftSelect === "1" && (<Home />)}
-                        {/* { leftSelect === "2" && (<About />)}  */}
+                        {leftSelect === "1" && (<Home />)}
+                        {leftSelect === "2" && (<About />)}
                         {/* { leftSelect === "3" && (<Blog />)} */}
                     </Card1>
                     <Card2></Card2>

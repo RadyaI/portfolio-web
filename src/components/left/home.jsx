@@ -1,9 +1,11 @@
 import styled from "styled-components"
+import 'animate.css'
 
 export default function Home() {
     return (
         <>
-            <Content>
+            <Content className="animate__animated animate__bounceInLeft">
+                {/* <Head><p>HOME</p> <p>HOME</p> </Head> */}
                 <div className="center">
                     <div className="name">
                         <div className="part1">I AM</div>
@@ -22,6 +24,31 @@ export default function Home() {
     )
 }
 
+// const Head = styled.div`
+//     width: fit-content;
+//     height: fit-content;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     font-weight: bolder;
+//     color: grey;
+
+//     p:nth-child(1){
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         font-size: 40px;
+//     }
+    
+//     p:nth-child(2){
+//         color: white;
+//         position: absolute;
+//         top: 10px;
+//         left: 10px;
+//         font-size: 50px;
+//     }
+// `
+
 const Content = styled.div`
     width: 100%;
     height: 100%;
@@ -29,7 +56,6 @@ const Content = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 
     .center{
         width: fit-content;
@@ -82,6 +108,6 @@ const Element = styled.div`
     width: 30px;
     height: 30px;
     transform: rotate(45deg);
-    filter: blur(10px);
+    filter: blur(8px);
     background-color: white;
 `
