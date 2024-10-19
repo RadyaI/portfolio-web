@@ -1,13 +1,36 @@
 import styled, { keyframes } from "styled-components";
 import Menu from "./components/menu";
 
+// Left
+import Home from "./components/left/home";
+import { useState } from "react";
+
 export default function Dashboard() {
+
+    const [leftSelect, setLeftSelect] = useState('1');
+    const [rightSelect, setRightSelect] = useState('1');
+e
+    const handleLeftSelectChange = (newLeftSelect) => {
+        setLeftSelect(newLeftSelect);
+    };
+
+    const handleRightSelectChange = (newRightSelect) => {
+        setRightSelect(newRightSelect);
+    };
+
     return (
         <>
             <Container>
-                <Menu />
+                <Menu 
+                    onLeftSelectChange={handleLeftSelectChange} 
+                    onRightSelectChange={handleRightSelectChange}
+                />
                 <Wrapper>
-                    <Card1></Card1>
+                    <Card1>
+                        { leftSelect === "1" && (<Home />)}
+                        {/* { leftSelect === "2" && (<About />)}  */}
+                        {/* { leftSelect === "3" && (<Blog />)} */}
+                    </Card1>
                     <Card2></Card2>
                 </Wrapper>
             </Container>
@@ -58,21 +81,19 @@ const Container = styled.div`
 const Wrapper = styled.div`
     width: 90%;
     height: 90%;
-    border: 1px solid white;
     display: flex;
-    gap: 20px;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 `
 
 const Card1 = styled.div`
-    border: 1px solid lightgreen;
-    width: 40%;
+    /* border: 1px solid lightgreen; */
+    width: 45%;
     height: 90%;
 `
 
 const Card2 = styled.div`
     border: 1px solid lightgreen;
-    width: 40%;
+    width: 45%;
     height: 90%;
 `
