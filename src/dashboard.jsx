@@ -7,6 +7,7 @@ import Cursor from "./components/cursor";
 // Left
 import Home from "./components/left/home";
 import About from "./components/left/about";
+import Blog from "./components/left/blog";
 
 export default function Dashboard() {
 
@@ -46,7 +47,7 @@ export default function Dashboard() {
                     <Card1>
                         {leftSelect === "1" && (<Home />)}
                         {leftSelect === "2" && (<About />)}
-                        {/* { leftSelect === "3" && (<Blog />)} */}
+                        { leftSelect === "3" && (<Blog />)}
                     </Card1>
                     <Card2></Card2>
                 </Wrapper>
@@ -92,6 +93,7 @@ const Container = styled.div`
         opacity: 0.9; 
         visibility: visible;
         pointer-events: none; 
+        z-index: 99999999;
     }
 `;
 
