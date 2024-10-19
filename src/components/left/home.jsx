@@ -4,7 +4,7 @@ import 'animate.css'
 export default function Home() {
     return (
         <>
-            <Content className="animate__animated animate__bounceInLeft">
+            <Content>
                 {/* <Head><p>HOME</p> <p>HOME</p> </Head> */}
                 <div className="center">
                     <div className="name">
@@ -18,7 +18,7 @@ export default function Home() {
                         <div className="list"><a href="https://github.com/RadyaI" target="_blank"><i className="fa-brands fa-github"></i></a></div>
                     </div>
                 </div>
-                <Element></Element>
+                <Element className="animate__animated animate__bounceInLeft"></Element>
             </Content>
         </>
     )
@@ -56,6 +56,7 @@ const Content = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     .center{
         width: fit-content;
