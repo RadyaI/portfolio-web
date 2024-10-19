@@ -8,7 +8,7 @@ import About from "./components/left/about";
 
 export default function Dashboard() {
 
-    const [leftSelect, setLeftSelect] = useState('2');
+    const [leftSelect, setLeftSelect] = useState('1');
     const [rightSelect, setRightSelect] = useState('1');
     const handleLeftSelectChange = (newLeftSelect) => {
         setLeftSelect(newLeftSelect);

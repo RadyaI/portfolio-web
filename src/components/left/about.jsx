@@ -21,16 +21,16 @@ export default function About() {
 }
 
 const Head = styled.div`
-    width: fit-content;
+    width: 95%;
     height: fit-content;
     font-weight: bolder;
-    color: grey;
     position: relative;
     height: auto;
     padding-bottom: 30px;
-
+    
     p:nth-child(1){
         /* position: absolute; */
+        color: grey;
         top: 0;
         left: 0;
         font-size: 60px;
@@ -51,9 +51,11 @@ const Content = styled.div`
     color: white;
     overflow: auto;
     line-height: 1.8;
+    direction: rtl;
 
     &::-webkit-scrollbar{
-        width: 10px;
+        width: 5px;
+        /* display: none; */
     }
     
     &::-webkit-scrollbar-track{
@@ -63,6 +65,10 @@ const Content = styled.div`
     &::-webkit-scrollbar-thumb{
         border-radius: 50px;
         background-color: white;
+    }
+
+    & > * {
+        direction: ltr;
     }
 
     .about{
