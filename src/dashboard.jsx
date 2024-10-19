@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 import Menu from "./components/menu";
+import Cursor from "./components/cursor";
 
 // Left
 import Home from "./components/left/home";
@@ -35,6 +36,7 @@ export default function Dashboard() {
 
     return (
         <>
+            <Cursor></Cursor>
             <Container>
                 <Menu
                     onLeftSelectChange={handleLeftSelectChange}

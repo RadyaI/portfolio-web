@@ -75,7 +75,7 @@ const Navbar = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70px;
+    width: 75px;
     height: 90%;
 
     .top{
@@ -90,7 +90,7 @@ const Navbar = styled.div`
     }
 
     .top .menu{
-        cursor: pointer;
+        /* cursor: pointer; */
         width: 90%;
         height: 40px;
         color: white;
@@ -120,7 +120,7 @@ const Navbar = styled.div`
     }
 
     .bottom .menu{
-        cursor: pointer;
+        /* cursor: pointer; */
         width: 90%;
         height: 40px;
         color: white;
@@ -140,10 +140,10 @@ const Navbar = styled.div`
     }
 
     .left-selected{
-        border-left: 1px solid white;
+        border-left: 2px solid white;
     }
 
     .right-selected{
-        border-right: 1px solid white;
+        border-right: 2px solid white;
     }
 `

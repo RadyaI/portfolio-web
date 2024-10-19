@@ -13,9 +13,9 @@ export default function Home() {
                         <div className="part3">A FULLSTACK DEVELOPER</div>
                     </div>
                     <div className="media">
-                        <div className="list"><a href="https://instagram.com/radyaif" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
-                        <div className="list"><a href="https://linkedin.com/in/muhammad-radya-iftikhar" target="_blank"><i class="fa-brands fa-linkedin"></i></a></div>
-                        <div className="list"><a href="https://github.com/RadyaI" target="_blank"><i class="fa-brands fa-github"></i></a></div>
+                        <div className="list"><a href="https://instagram.com/radyaif" target="_blank"><i className="fa-brands fa-instagram"></i></a></div>
+                        <div className="list"><a href="https://linkedin.com/in/muhammad-radya-iftikhar" target="_blank"><i className="fa-brands fa-linkedin"></i></a></div>
+                        <div className="list"><a href="https://github.com/RadyaI" target="_blank"><i className="fa-brands fa-github"></i></a></div>
                     </div>
                 </div>
                 <Element></Element>
@@ -91,7 +91,7 @@ const Content = styled.div`
 
     .media i{
         font-size: 20px;
-        cursor: pointer;
+        /* cursor: pointer; */
     }
 
     a{

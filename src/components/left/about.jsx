@@ -21,6 +21,7 @@ export default function About() {
 }
 
 const Head = styled.div`
+    user-select: none;
     width: 95%;
     height: fit-content;
     font-weight: bolder;
