@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import 'animate.css'
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
                 {/* <Head><p>HOME</p> <p>HOME</p> </Head> */}
                 <div className="center">
                     <div className="name">
-                        <div className="part1">I AM</div>
+                        <div className="part1 animate__animated animate__bounceInLeft">I AM</div>
                         <div className="part2">RADYA IF</div>
                         <div className="part3">A FULLSTACK DEVELOPER</div>
                     </div>
@@ -18,7 +18,7 @@ export default function Home() {
                         <div className="list"><a href="https://github.com/RadyaI" target="_blank"><i className="fa-brands fa-github"></i></a></div>
                     </div>
                 </div>
-                <Element className="animate__animated animate__bounceInLeft"></Element>
+                <Element></Element>
             </Content>
         </>
     )
@@ -39,7 +39,7 @@ export default function Home() {
 //         left: 0;
 //         font-size: 40px;
 //     }
-    
+
 //     p:nth-child(2){
 //         color: white;
 //         position: absolute;
@@ -102,13 +102,19 @@ const Content = styled.div`
 
 `
 
+const ElementAnimate = keyframes`
+    0%{transform: translateY(-20px) rotate(45deg);}
+    50%{transform: translateY(0) rotate(45deg);}
+    100%{transform: translateY(-20px) rotate(45deg);}
+`
+
 const Element = styled.div`
+    background-color: white;
     position: absolute;
     bottom: 30px;
     right: 70px;
-    width: 30px;
+    width: 30px;    
     height: 30px;
-    transform: rotate(45deg);
     filter: blur(8px);
-    background-color: white;
+    animation: ${ElementAnimate} 2s linear infinite;
 `
