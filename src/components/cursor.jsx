@@ -1,27 +1,28 @@
-import AnimatedCursor from "react-animated-cursor"
+import React from 'react';
+import AnimatedCursor from "react-animated-cursor";
 
-export default function Cursor() {
+function App() {
   return (
-    <AnimatedCursor
-    innerSize={8}
-    outerSize={8}
-    color='255,127,80'
-    outerAlpha={0.2}
-    innerScale={0.7}
-    outerScale={5}
-    clickables={[
-      'a',
-      'input[type="text"]',
-      'input[type="email"]',
-      'input[type="number"]',
-      'input[type="submit"]',
-      'input[type="image"]',
-      'label[for]',
-      'select',
-      'textarea',
-      'button',
-      '.link'
-    ]}
-  />
+    <div>
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={35}
+        color='0, 150, 255'
+        outerAlpha={0.5}
+        innerScale={0.7}
+        outerScale={2}
+        showSystemCursor={false} 
+        outerStyle={{
+          border: '2px solid orange',
+          backgroundColor: 'transparent', 
+        }}
+        innerStyle={{
+          backgroundColor: 'transparent', 
+          border: '2px solid orange'
+        }}
+      />
+    </div>
   );
 }
+
+export default App;
