@@ -6,7 +6,10 @@ export default function Dashboard() {
         <>
             <Container>
                 <Menu />
-                <Wrapper></Wrapper>
+                <Wrapper>
+                    <Card1></Card1>
+                    <Card2></Card2>
+                </Wrapper>
             </Container>
         </>
     );
@@ -54,5 +57,22 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
     width: 90%;
+    height: 90%;
+    border: 1px solid white;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+`
+
+const Card1 = styled.div`
+    border: 1px solid lightgreen;
+    width: 40%;
+    height: 90%;
+`
+
+const Card2 = styled.div`
+    border: 1px solid lightgreen;
+    width: 40%;
     height: 90%;
 `
