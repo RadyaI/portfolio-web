@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
+
 import Menu from "./components/menu";
 
 // Left
@@ -18,8 +19,8 @@ export default function Dashboard() {
         setRightSelect(newRightSelect);
     };
 
-        useEffect(() => {
-            console.log(`
+    useEffect(() => {
+        console.log(`
             ███████╗████████╗ ██████╗ ██████╗ 
             ██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗
             ███████╗   ██║   ██║   ██║██████╔╝
@@ -28,9 +29,9 @@ export default function Dashboard() {
             ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     
             `);
 
-            console.log("%cMau ngapain? udah ga usah! balik sana hush.", "color: red; font-size: 30px; font-weight: bold;");
+        console.log("%cMau ngapain? udah ga usah! balik sana hush.", "color: red; font-size: 30px; font-weight: bold;");
 
-        }, []);
+    }, []);
 
     return (
         <>
