@@ -1,7 +1,8 @@
 import { useState } from "react"
 import styled from "styled-components"
+import "animate.css"
 
-export default function Blog(params) {
+export default function Blog() {
 
     const [blog, setBlog] = useState([
         {
@@ -52,7 +53,7 @@ export default function Blog(params) {
 
     return (
         <>
-            <Content>
+            <Content className="animate__animated animate__bounceInLeft">
                 <Head><p>BLOG</p> <p>BLOG</p> </Head>
                 <DisplayBlog></DisplayBlog>
             </Content>
