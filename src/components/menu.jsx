@@ -76,7 +76,7 @@ const Navbar = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 75px;
-    height: 90%;
+    height: 75%;
 
     .top{
         border-bottom: 1px solid white;
