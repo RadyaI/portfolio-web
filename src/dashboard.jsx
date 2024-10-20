@@ -9,6 +9,9 @@ import Home from "./components/left/home";
 import About from "./components/left/about";
 import Blog from "./components/left/blog";
 
+// Right
+import Project from "./components/right/project";
+
 export default function Dashboard() {
 
     const [leftSelect, setLeftSelect] = useState('1');
@@ -47,9 +50,11 @@ export default function Dashboard() {
                     <Card1>
                         {leftSelect === "1" && (<Home />)}
                         {leftSelect === "2" && (<About />)}
-                        { leftSelect === "3" && (<Blog />)}
+                        {leftSelect === "3" && (<Blog />)}
                     </Card1>
-                    <Card2></Card2>
+                    <Card2>
+                        {rightSelect === "1" && (<Project />)}
+                    </Card2>
                 </Wrapper>
             </Container>
         </>
@@ -112,7 +117,7 @@ const Card1 = styled.div`
 `
 
 const Card2 = styled.div`
-    border: 1px solid lightgreen;
+    /* border: 1px solid lightgreen; */
     width: 45%;
     height: 90%;
 `
