@@ -45,7 +45,7 @@ export default function Blog() {
     function DisplayBlog() {
         return blog.map((i, no) =>
                 <div className="card" key={no}>
-                    <a href={i.link} target="_blank"><p>{i.title}</p></a>
+                    <a href={i.link} target="_blank" rel="noopener noreferrer"><p>{i.title}</p></a>
                     <small>{i.read} - {i.date}</small>
                 </div>
         )

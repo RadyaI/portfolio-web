@@ -92,8 +92,8 @@ export default function Project() {
         return projectData.map((i, no) =>
             <div className="card" style={{borderBottom: `5px solid ${i.color}` }} key={no}>
                 <h3>{i.title}</h3>
-                <a href={i.live_link} target="_blank"><small>{i.live_link}</small></a><br />
-                <a href={i.repo_link} target="_blank"><small>{i.repo_link}</small></a>
+                <a href={i.live_link} target="_blank" rel="noopener noreferrer"><small>{i.live_link}</small></a><br />
+                <a href={i.repo_link} target="_blank" rel="noopener noreferrer"><small>{i.repo_link}</small></a>
                 <p className="desc">{i.desc}</p>
                 <div className="tech">
                     <div className="color" style={{backgroundColor: i.color}}></div>
