@@ -11,6 +11,7 @@ import Blog from "./components/left/blog";
 
 // Right
 import Project from "./components/right/project";
+import Contact from "./components/right/contact";
 
 export default function Dashboard() {
 
@@ -54,6 +55,7 @@ export default function Dashboard() {
                     </Card1>
                     <Card2>
                         {rightSelect === "1" && (<Project />)}
+                        {rightSelect === "2" && (<Contact />)}
                     </Card2>
                 </Wrapper>
             </Container>

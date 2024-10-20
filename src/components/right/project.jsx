@@ -92,8 +92,8 @@ export default function Project() {
         return projectData.map((i, no) =>
             <div className="card" key={no}>
                 <h3>{i.title}</h3>
-                <a href={i.live_link}><small>{i.live_link}</small></a><br />
-                <a href={i.repo_link}><small>{i.repo_link}</small></a>
+                <a href={i.live_link} target="_blank"><small>{i.live_link}</small></a><br />
+                <a href={i.repo_link} target="_blank"><small>{i.repo_link}</small></a>
                 <p className="desc">{i.desc}</p>
                 <div className="tech">
                     <div className="color" style={{backgroundColor: i.color}}></div>
@@ -106,7 +106,7 @@ export default function Project() {
     return (
         <>
             <Content>
-                <Head className="animate__animated animate__bounceInRight"><p>PROJECT</p> <p>PROJECT</p> </Head>
+                <Head><p className="animate__animated animate__bounceInLeft">Project</p> <p>Project.</p> </Head>
                 <DisplayProject />
             </Content>
         </>
@@ -120,10 +120,9 @@ const Head = styled.div`
     height: fit-content;
     font-weight: bolder;
     position: relative;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 
     p:nth-child(1){
-        position: fixed;
         color: grey;
         font-size: 60px;
     }
@@ -166,7 +165,7 @@ const Content = styled.div`
     }
 
     .card:nth-child(2){
-        margin-top: 80px;
+        /* margin-top: 80px; */
     }
 
     .card{

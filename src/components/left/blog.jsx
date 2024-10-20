@@ -54,7 +54,7 @@ export default function Blog() {
     return (
         <>
             <Content>
-                <Head className="animate__animated animate__bounceInLeft"><p>BLOG</p> <p>BLOG</p> </Head>
+                <Head><p className="animate__animated animate__bounceInLeft">Blog</p> <p>Blog.</p> </Head>
                 <DisplayBlog></DisplayBlog>
             </Content>
         </>
@@ -71,8 +71,9 @@ const Head = styled.div`
     padding-bottom: 30px;
 
     p:nth-child(1){
-        position: fixed;
         color: grey;
+        top: 0;
+        left: 0;
         font-size: 60px;
     }
     
@@ -111,7 +112,7 @@ const Content = styled.div`
 }
 
 .card:nth-child(2){
-    margin-top: 100px;
+    /* margin-top: 50px; */
 }
 
 .card{
