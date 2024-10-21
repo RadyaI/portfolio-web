@@ -12,11 +12,12 @@ import Blog from "./components/left/blog";
 // Right
 import Project from "./components/right/project";
 import Contact from "./components/right/contact";
+import Guestbook from "./components/right/guestbook";
 
 export default function Dashboard() {
 
     const [leftSelect, setLeftSelect] = useState('1');
-    const [rightSelect, setRightSelect] = useState('1');
+    const [rightSelect, setRightSelect] = useState('3');
     const handleLeftSelectChange = (newLeftSelect) => {
         setLeftSelect(newLeftSelect);
     };
@@ -56,6 +57,8 @@ export default function Dashboard() {
                     <Card2>
                         {rightSelect === "1" && (<Project />)}
                         {rightSelect === "2" && (<Contact />)}
+                        {rightSelect === "3" && (<Guestbook />)}
+
                     </Card2>
                 </Wrapper>
             </Container>
