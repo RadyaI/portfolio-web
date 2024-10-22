@@ -93,7 +93,9 @@ export default function Guestbook() {
 
     function DisplayMessage() {
         return messageData.map((i, no) =>
-            <div className="card"></div>
+            <div className="card">
+                <p>{i.name} </p>: <p>{i.msg}</p>
+            </div>
         )
     }
 
@@ -110,11 +112,12 @@ export default function Guestbook() {
                     <p>Guest Book.</p>
                 </Head>
 
+                {!isLoggedIn && (<small className="welcome">Welcome! Please <a href="#" onClick={() => Login()}>sign in</a> to leave a message.</small>)}
+                {alert && (<Alert><small>Klik submit untuk mengirim</small></Alert>)}
+                {terkirim && (<Terkirim><small>Success.</small></Terkirim>)}
+                {empty && (<Empty><small>Cannot empty!</small></Empty>)}
+
                 <Form>
-                    {!isLoggedIn && (<small>Welcome! Please <a href="#" onClick={() => Login()}>sign in</a> to leave a message.</small>)}
-                    {alert && (<Alert><small>Klik submit untuk mengirim</small></Alert>)}
-                    {terkirim && (<Terkirim><small>Success.</small></Terkirim>)}
-                    {empty && (<Empty><small>Cannot empty!</small></Empty>)}
                     <div className="info">
                         {!isLoggedIn ? <input type="text" placeholder="Your message..." className="name-info" disabled value={isi} onChange={(e) => setIsi(e.target.value)} /> : <input type="text" placeholder="Your message..." className="name-info" value={isi} onChange={(e) => setIsi(e.target.value)} onKeyUp={(e) => handleForm(e)} />}
                         <button onClick={() => sendMsg()}>SUBMIT</button>
@@ -131,22 +134,31 @@ export default function Guestbook() {
 }
 
 const Alert = styled.div`
-    width: 100%;
+    border-left: 5px solid orange;
+    color: white;
+    width: 90%;
+    margin-left: 10px;
     background-color: #cd6343ba;
     padding: 10px 10px;
     font-size: 18px;
 `
 
 const Terkirim = styled.div`
-    width: 100%;
+    border-left: 5px solid #185f18a1;
+    color: white;
     background-color: #5ad35a8b;
+    width: 90%;
+    margin-left: 10px;
     padding: 10px 10px;
     font-size: 18px;
 `
 
 const Empty = styled.div`
-    width: 100%;
-    background-color: #afd35a8a;
+    border-left: 5px solid yellow;
+    color: white;
+    width: 90%;
+    margin-left: 10px;
+    background-color: #d3bf5a89;
     padding: 10px 10px;
     font-size: 18px;
 `
@@ -183,13 +195,22 @@ const Content = styled.div`
     position: relative;
     overflow: auto;
     overflow-x: hidden;
+    
+    a{
+        text-decoration: underline;
+        color: lightblue;
+    }
+    
+    .welcome{
+        margin-left: 10px;
+        color: white;
+    }
 `
 
 const Form = styled.div`
-width: 80%;
+width: 90%;
 height: 70px;
-margin-left: 15px;
-/* border: 1px solid white; */
+margin-left: 10px;
 
 small{
     color: white;
@@ -236,7 +257,32 @@ a{
 `
 
 const Message = styled.div`
-    width: 100%;
-    height: 10px;
-    border: 1px solid white;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-left: 10px;
+
+    .card{
+        background-color: #212121;
+        width: 100%;
+        height: 100%;
+        padding: 10px 10px;
+        display: flex;
+    }
+
+    .card p:nth-child(1){
+        width: 160px;
+        overflow: hidden;
+        text-overflow: clip;
+        white-space: nowrap;
+    }
+
+    .card p:nth-child(2){
+        width: 60%;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        margin-left: 5px;
+    }
 `
