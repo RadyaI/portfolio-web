@@ -17,7 +17,7 @@ import Guestbook from "./components/right/guestbook";
 export default function Dashboard() {
 
     const [leftSelect, setLeftSelect] = useState('1');
-    const [rightSelect, setRightSelect] = useState('3');
+    const [rightSelect, setRightSelect] = useState('1');
     const handleLeftSelectChange = (newLeftSelect) => {
         setLeftSelect(newLeftSelect);
     };
