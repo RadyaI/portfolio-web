@@ -195,6 +195,7 @@ const Content = styled.div`
     position: relative;
     overflow: auto;
     overflow-x: hidden;
+
     
     a{
         text-decoration: underline;

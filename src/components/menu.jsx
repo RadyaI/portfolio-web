@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 import Loader from "./loader"
@@ -31,6 +31,7 @@ export default function Menu({ onLeftSelectChange, onRightSelectChange }) {
         }, 800);
 
     };
+
 
     return (
         <>
@@ -77,6 +78,10 @@ const Navbar = styled.div`
     transform: translate(-50%, -50%);
     width: 75px;
     height: 75%;
+
+    @media only screen and (max-width: 700px){
+        display: none;
+    }
 
     .top{
         border-bottom: 1px solid white;

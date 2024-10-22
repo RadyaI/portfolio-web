@@ -58,8 +58,16 @@ export default function Dashboard() {
                         {rightSelect === "1" && (<Project />)}
                         {rightSelect === "2" && (<Contact />)}
                         {rightSelect === "3" && (<Guestbook />)}
-
                     </Card2>
+
+                    {/* MOBILE VIEW */}
+                    <Mobile><Home></Home></Mobile>
+                    <Mobile><About></About></Mobile>
+                    <Mobile><Blog></Blog></Mobile>
+                    <Mobile><Project></Project></Mobile>
+                    <Mobile><Contact></Contact></Mobile>
+                    <Mobile><Guestbook></Guestbook></Mobile>
+                    {/* MOBILE VIEW */}
                 </Wrapper>
             </Container>
         </>
@@ -89,6 +97,11 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
 
+    @media only screen and (max-width: 700px){
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
     &:before {
         content: '';
         position: absolute;
@@ -113,16 +126,42 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (max-width: 700px){
+        flex-direction: column;
+    }
 `
 
 const Card1 = styled.div`
     /* border: 1px solid lightgreen; */
     width: 45%;
     height: 90%;
-`
+
+    @media only screen and (max-width: 700px){
+        width: 95%;
+        display: none;
+    }
+    `
 
 const Card2 = styled.div`
     /* border: 1px solid lightgreen; */
     width: 45%;
     height: 90%;
+    
+    @media only screen and (max-width: 700px){
+        width: 95%;
+        display: none;
+    }
+`
+
+const Mobile = styled.div`
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+
+    padding-bottom: 50px;
+
+    @media only screen and (min-width: 700px){
+        display: none;
+    }
 `
