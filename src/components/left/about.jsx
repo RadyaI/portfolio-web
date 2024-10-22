@@ -12,7 +12,7 @@ export default function About() {
                     <p>About.</p>
                 </Head>
                 <div className="about">
-                    Hi, my name is Muhammad Radya Iftikhar, but you can call me <b><a href="https://radya.fun" rel="noopener noreferrer"><u>Radya
+                    Hi, my name is Muhammad Radya Iftikhar, but you can call me <b><a href="https://my.radya.fun" rel="noopener noreferrer"><u>Radya
                     </u></a></b>. I'm a first-year university student with a growing passion for coding, especially in web development and IoT. I enjoy diving into projects that allow me to build creative solutions using technology. So far, I've developed skills in <u><a href="#">HTML/CSS</a></u>, <u><a href="#">JavaScript</a></u>, <u><a href="#">Vue</a></u>, <u><a href="#">React</a></u>, <u><a href="#">Firebase</a></u>, <u><a href="#">MySql</a></u>, and <u><a href="#">Node/Express.js</a></u>, and I love experimenting with these tools to create practical applications.
                     <br /><br />
                     Lately, I've been focusing on building personal web projects that simplify my daily life, like organizing my college assignments or managing my belongings through custom-made platforms. While I'm still exploring different aspects of the tech world, I'm excited about continuing to learn and improve my abilities as a developer.
