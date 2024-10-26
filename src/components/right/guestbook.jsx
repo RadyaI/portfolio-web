@@ -195,11 +195,24 @@ const Content = styled.div`
     position: relative;
     overflow: auto;
     overflow-x: hidden;
-
     
     a{
         text-decoration: underline;
         color: lightblue;
+    }
+
+    &::-webkit-scrollbar{
+        width: 5px;
+    /* display: none; */
+    }
+
+    &::-webkit-scrollbar-track{
+        display: none;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        border-radius: 50px;
+        background-color: white;
     }
     
     .welcome{
