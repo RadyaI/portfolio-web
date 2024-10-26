@@ -85,6 +85,16 @@ export default function Project() {
             repo_link: "https://github.com/RadyaI/pengingat-tugas",
             tag: ["Javascript", "Discordjs", "bot"],
         },
+        {
+            no: 9,
+            title: "Cara bertanya kodingan error",
+            desc: "Don't ask to ask!",
+            tech: "React",
+            color: "#61DAFB",
+            live_link: "https://kodingankuerror.radya.fun",
+            repo_link: "https://github.com/RadyaI/cara-bertanya",
+            tag: ["Javascript", "Tailwind", "💢"],
+        },
 
     ])
 
