@@ -93,7 +93,7 @@ export default function Guestbook() {
 
     function DisplayMessage() {
         return messageData.map((i, no) =>
-            <div className="card">
+            <div className="card" key={no}>
                 <p>{i.name} </p>: <p>{i.msg}</p>
             </div>
         )
