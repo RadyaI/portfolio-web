@@ -2,9 +2,33 @@ import styled from "styled-components"
 import "animate.css"
 
 import foto from '../../assets/foto2.jpg'
+import { useState } from "react"
 
 export default function About() {
 
+    const [listEdu, setListEdu] = useState([
+        {
+            no: 1,
+            title: "SMK Telkom Malang",
+            time: "2021 - 2024",
+        },
+        {
+            no: 2,
+            title: "Universitas Muhammadiyah Malang",
+            time: "2024 - 2028",
+        },
+    ])
+
+    function EduDisplay() {
+        const dis = listEdu.map((i, no) =>
+            <div className="card">
+                <p>{i.title}</p>
+                <small>{i.time}</small>
+            </div>
+        )
+
+        return dis
+    }
 
     return (
         <>
@@ -31,6 +55,10 @@ export default function About() {
                         <img src={foto} alt="Foto" />
                     </div>
                 </div>
+                <div className="edu-title">Education</div>
+                <Edu>
+                    <EduDisplay></EduDisplay>
+                </Edu>
             </Content>
         </>
     )
@@ -130,6 +158,14 @@ const Content = styled.div`
         color: white;
     }
 
+    .edu-title{
+        width: 90%;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
     @media only screen and (max-width: 700px){
         .foto:nth-child(2){
             display: none;
@@ -155,5 +191,24 @@ const Content = styled.div`
             height: 100%;
             object-fit: cover;
         }
+    }
+`
+
+const Edu = styled.div`
+    width: 80%;
+    height: auto;
+    margin-right: auto;
+    
+    .card{
+        padding: 10px 15px;
+        margin-right: auto;
+        margin-left: 17px;
+        margin-bottom: 10px;
+        background-color: #090909;
+        margin-top: 10px;
+    }
+
+    @media only screen and (max-width:700px){
+        width: 90%;
     }
 `
