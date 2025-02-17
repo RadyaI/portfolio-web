@@ -95,7 +95,46 @@ export default function Project() {
             repo_link: "https://github.com/RadyaI/cara-bertanya",
             tag: ["Javascript", "Tailwind", "💢"],
         },
-
+        {
+            no: 10,
+            title: "Online Polling",
+            desc: "Polling application where users can create polls, invite other users to vote, and see results in real-time.",
+            tech: "React",
+            color: "#61DAFB",
+            live_link: "https://polling.radya.fun",
+            repo_link: "https://github.com/RadyaI/polling",
+            tag: ["React", "Javascript", "Firebase"],
+        },
+        {
+            no: 11,
+            title: "Uareshort",
+            desc: "A simple and efficient URL shortener built with Express, Prisma, and MySQL. Uareshort allows you to shorten long URLs, track analytics, and manage your links.",
+            tech: "Typescript",
+            color: "#00273f",
+            live_link: "-",
+            repo_link: "https://github.com/RadyaI/uareshort",
+            tag: ["Express", "Typescript", "MYsql"],
+        },
+        {
+            no: 12,
+            title: "Yourlist api",
+            desc: "TodoList API is a simple RESTful API for managing tasks, featuring CRUD operations, user authentication, and task categorization. Built with express.js for efficient task management.",
+            tech: "Typescript",
+            color: "#00273f",
+            live_link: "-",
+            repo_link: "https://github.com/RadyaI/yourlist-api",
+            tag: ["Express", "Typescript", "MYsql"],
+        },
+        {
+            no: 13,
+            title: "User analytics api",
+            desc: "User Analytics API is a simple RESTful API for managing user data and activities. It includes basic CRUD operations and simple analytics endpoints to track user engagement.",
+            tech: "Typescript",
+            color: "#00273f",
+            live_link: "-",
+            repo_link: "https://github.com/RadyaI/user-analytics-api",
+            tag: ["Express", "Typescript", "MYsql"],
+        },
     ])
 
     function DisplayProject() {
