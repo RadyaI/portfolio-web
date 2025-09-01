@@ -10,11 +10,12 @@ export default function Home() {
                     <div className="name">
                         <div className="part1 animate__animated animate__bounceInLeft">I AM</div>
                         <div className="part2">RADYA IF</div>
-                        <div className="part3">A FULLSTACK DEVELOPER</div>
+                        <div className="part3">In This Economy? <span className="coret">A FULLSTACK DEVELOPER</span></div>
+                        <div className="part4">Ngoding apa aja dah</div>
                     </div>
                     <div className="media">
                         <div className="list"><a href="https://instagram.com/radyaif" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a></div>
-                        <div className="list"><a href="https://linkedin.com/in/muhammad-radya-iftikhar" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a></div>
+                        <div className="list"><a href="https://www.linkedin.com/in/radyaa/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a></div>
                         <div className="list"><a href="https://github.com/RadyaI" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a></div>
                     </div>
                 </div>
@@ -63,6 +64,10 @@ const Content = styled.div`
         height: fit-content;
     }
 
+    .coret{
+        text-decoration: line-through;
+    }
+
     .name{
         margin-bottom: 10px;
     }
@@ -75,8 +80,12 @@ const Content = styled.div`
         font-weight: bolder;
         font-size: 70px;
     }
-    
+
     .name .part3{
+
+    }
+    
+    .name .part4{
         font-size: 15px;
         text-align: right;
     }
