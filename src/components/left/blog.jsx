@@ -40,6 +40,20 @@ export default function Blog() {
             read: "4 min read",
             link: "https://medium.com/@radyaiftikhar/20-ide-project-menggunakan-react-mulai-dari-pemula-sampai-advance-0bde3f6392bc"
         },
+        {
+            no: 6,
+            title: "Mengenal Variabel dan Tipe Data pada Bahasa Pemrograman Java",
+            date: "Aug 17, 2025",
+            read: "5 min read",
+            link: "https://medium.com/@radyaiftikhar/mengenal-variabel-dan-tipe-data-pada-bahasa-pemrograman-java-23a82d232e12"
+        },
+        {
+            no: 7,
+            title: "Memahami Percabangan pada Bahasa Pemrograman Java",
+            date: "Aug 19, 2025",
+            read: "4 min read",
+            link: "https://medium.com/@radyaiftikhar/memahami-percabangan-pada-bahasa-pemrograman-java-3c44926c67f7"
+        },
     ])
 
     function DisplayBlog() {
