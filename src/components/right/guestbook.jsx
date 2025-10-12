@@ -123,7 +123,7 @@ export default function Guestbook() {
                         <button onClick={() => sendMsg()}>SUBMIT</button>
                     </div>
                 </Form>
-
+ 
                 <Message>
                     <DisplayMessage></DisplayMessage>
                 </Message>
