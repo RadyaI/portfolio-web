@@ -31,11 +31,10 @@ const Grid = styled.div`
   width: 100%;
 
   @media (max-width: 640px) {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 1fr;
     gap: 0.5rem;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 150px);
   }
 `;
 
@@ -121,11 +120,18 @@ const SmallButton = styled.button`
   }
 `;
 
-const ResetButton = styled.button`
+const BottomButtons = styled.div`
   margin-top: 1rem;
-  padding: 0.7rem 1.2rem;
-  font-size: 1rem;
-  background-color: #e74c3c;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const Button = styled.button`
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  background-color: ${(props) => props.bg || "#333"};
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -133,12 +139,65 @@ const ResetButton = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background-color: #c0392b;
+    background-color: ${(props) => props.hover || "#555"};
   }
 
   @media (max-width: 640px) {
-    padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+`;
+
+const Notification = styled.div`
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #27ae60;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.9rem;
+  z-index: 1000;
+`;
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: ${(props) => (props.show ? "flex" : "none")};
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+`;
+
+const ModalContent = styled.div`
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 80%;
+  overflow: auto;
+`;
+
+const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  color: #f0f0f0;
+  font-size: 0.85rem;
+
+  th, td {
+    border: 1px solid #444;
+    padding: 0.4rem;
+    text-align: center;
+  }
+
+  th {
+    background-color: #333;
+    position: sticky;
+    top: 0;
   }
 `;
 
@@ -156,21 +215,22 @@ const categories = [
 
 export default function VehicleCounter() {
   const [counts, setCounts] = useState({});
+  const [reports, setReports] = useState([]);
+  const [notif, setNotif] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("vehicle_counts_v1");
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      const fixed = {};
-      categories.forEach((c) => {
-        fixed[c.key] = typeof parsed[c.key] === "number" ? parsed[c.key] : 0;
-      });
-      setCounts(fixed);
-    } else {
-      const initial = {};
-      categories.forEach((c) => (initial[c.key] = 0));
-      setCounts(initial);
+    const storedCounts = localStorage.getItem("vehicle_counts_v1");
+    const storedReports = localStorage.getItem("vehicle_reports_v1");
+
+    if (storedCounts) setCounts(JSON.parse(storedCounts));
+    else {
+      const init = {};
+      categories.forEach((c) => (init[c.key] = 0));
+      setCounts(init);
     }
+
+    if (storedReports) setReports(JSON.parse(storedReports));
   }, []);
 
   useEffect(() => {
@@ -179,19 +239,9 @@ export default function VehicleCounter() {
     }
   }, [counts]);
 
-  const increment = (key) => {
-    setCounts((prev) => ({
-      ...prev,
-      [key]: (prev[key] || 0) + 1,
-    }));
-  };
-
-  const decrement = (key) => {
-    setCounts((prev) => ({
-      ...prev,
-      [key]: Math.max((prev[key] || 0) - 1, 0),
-    }));
-  };
+  const increment = (key) => setCounts((p) => ({ ...p, [key]: (p[key] || 0) + 1 }));
+  const decrement = (key) =>
+    setCounts((p) => ({ ...p, [key]: Math.max((p[key] || 0) - 1, 0) }));
 
   const resetAll = () => {
     const reset = {};
@@ -199,8 +249,24 @@ export default function VehicleCounter() {
     setCounts(reset);
   };
 
+  const saveReport = () => {
+    const timestamp = new Date().toLocaleString();
+    const newReport = { timestamp, ...counts };
+    const updated = [...reports, newReport];
+    setReports(updated);
+    localStorage.setItem("vehicle_reports_v1", JSON.stringify(updated));
+    setNotif(true);
+    setTimeout(() => setNotif(false), 1500);
+  };
+
+  const resetReports = () => {
+    setReports([]);
+    localStorage.removeItem("vehicle_reports_v1");
+  };
+
   return (
     <Container>
+      {notif && <Notification>✅ Report saved!</Notification>}
       <Title>🚦 Vehicle Counter</Title>
       <Grid>
         {categories.map((cat) => (
@@ -214,7 +280,64 @@ export default function VehicleCounter() {
           </Card>
         ))}
       </Grid>
-      <ResetButton onClick={resetAll}>Reset Semua</ResetButton>
+
+      <BottomButtons>
+        <Button bg="#27ae60" hover="#1e8449" onClick={saveReport}>
+          💾 Save Report
+        </Button>
+        <Button bg="#2980b9" hover="#1f618d" onClick={() => setShowModal(true)}>
+          📊 Lihat Report
+        </Button>
+        <Button bg="#e74c3c" hover="#c0392b" onClick={resetAll}>
+          🔄 Reset Counter
+        </Button>
+      </BottomButtons>
+
+      <ModalOverlay show={showModal}>
+        <ModalContent>
+          <h3>📋 Saved Reports</h3>
+          {reports.length === 0 ? (
+            <p style={{ textAlign: "center", marginTop: "1rem" }}>Belum ada report tersimpan.</p>
+          ) : (
+            <>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Waktu</th>
+                    {categories.map((c) => (
+                      <th key={c.key}>{c.label}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {reports.map((r, i) => (
+                    <tr key={i}>
+                      <td>{r.timestamp}</td>
+                      {categories.map((c) => (
+                        <td key={c.key}>{r[c.key]}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              <Button
+                bg="#e74c3c"
+                hover="#c0392b"
+                style={{ marginTop: "0.8rem", width: "100%" }}
+                onClick={resetReports}
+              >
+                🧹 Hapus Semua Report
+              </Button>
+            </>
+          )}
+          <Button
+            style={{ marginTop: "0.8rem", width: "100%" }}
+            onClick={() => setShowModal(false)}
+          >
+            ✖️ Tutup
+          </Button>
+        </ModalContent>
+      </ModalOverlay>
     </Container>
   );
 }
