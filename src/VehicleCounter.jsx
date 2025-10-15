@@ -292,7 +292,7 @@ export default function VehicleCounter() {
           🔄 Reset Counter
         </Button>
         <Button
-          bg="#8e44ad"
+        bg="#121212"
           hover="#732d91"
           onClick={() => {
             const baseDate = new Date("2025-10-11T12:30:00"); // jam mulai
@@ -337,7 +337,6 @@ export default function VehicleCounter() {
               existingReports.push(newReport);
             });
 
-            // Simpan ke localStorage
             localStorage.setItem("vehicle_reports_v1", JSON.stringify(existingReports));
             alert("✅ Data 11 Oktober 2025 (12:3013:30) berhasil dimasukkan!");
           }}
