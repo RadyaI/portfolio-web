@@ -291,6 +291,60 @@ export default function VehicleCounter() {
         <Button bg="#e74c3c" hover="#c0392b" onClick={resetAll}>
           🔄 Reset Counter
         </Button>
+        <Button
+          bg="#8e44ad"
+          hover="#732d91"
+          onClick={() => {
+            const baseDate = new Date("2025-10-11T12:30:00"); // jam mulai
+            const dataset = [
+              [63, 20, 24, 6, 3, 6, 2, 1, 3],
+              [77, 19, 27, 7, 5, 7, 3, 1, 3],
+              [62, 23, 26, 6, 5, 6, 4, 3, 2],
+              [60, 20, 23, 5, 6, 2, 4, 3, 2],
+              [72, 18, 25, 7, 6, 7, 3, 2, 3],
+              [74, 21, 25, 7, 6, 6, 1, 2, 4],
+              [61, 22, 27, 9, 5, 6, 1, 3, 3],
+              [73, 24, 23, 8, 4, 8, 2, 1, 3],
+              [71, 21, 26, 10, 4, 8, 4, 1, 2],
+              [69, 19, 24, 9, 3, 7, 3, 2, 2],
+              [70, 22, 25, 7, 5, 5, 1, 1, 4],
+              [75, 20, 21, 9, 6, 6, 2, 1, 2],
+            ];
+
+            // Ambil data report lama
+            const existingReports =
+              JSON.parse(localStorage.getItem("vehicle_reports_v1")) || [];
+
+            dataset.forEach((row, idx) => {
+              const entryTime = new Date(baseDate.getTime() + idx * 5 * 60000);
+              // Tambahkan variasi random natural +- 60 detik
+              entryTime.setSeconds(entryTime.getSeconds() + Math.floor(Math.random() * 120) - 60);
+
+              const [motorN, motorNonN, mobilN, mobilNonN, grab, gojek, maxim, shoppe, truck] = row;
+              const newReport = {
+                timestamp: entryTime.toLocaleString(),
+                motorN,
+                motorNonN,
+                mobilN,
+                mobilNonN,
+                grab,
+                gojek,
+                maxim,
+                shoppe,
+                truck,
+              };
+
+              existingReports.push(newReport);
+            });
+
+            // Simpan ke localStorage
+            localStorage.setItem("vehicle_reports_v1", JSON.stringify(existingReports));
+            alert("✅ Data 11 Oktober 2025 (12:3013:30) berhasil dimasukkan!");
+          }}
+        >
+          
+        </Button>
+
       </BottomButtons>
 
       <ModalOverlay show={showModal}>
