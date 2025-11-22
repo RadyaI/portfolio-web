@@ -21,7 +21,7 @@ export default function About() {
 
     function EduDisplay() {
         const dis = listEdu.map((i, no) =>
-            <div className="card">
+            <div key={no} className="card">
                 <p>{i.title}</p>
                 <small>{i.time}</small>
             </div>
